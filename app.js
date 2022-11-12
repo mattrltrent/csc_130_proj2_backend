@@ -16,6 +16,10 @@ app.get("/", (req, res) => {
     res.sendFile('views/dashboard.html', {root: __dirname })
 });
 
+app.all("/meals/", (req, res) => {
+    res.status(500).send("Search can't be blank.");
+});
+
 app.all("/random", async function (req, res) {
     try {
         axios.post('https://www.themealdb.com/api/json/v1/1/random.php').then(resp => {
