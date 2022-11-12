@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="../styles.css"> -->
     <title>Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
     <style>
         body {
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
+
 
 h1 {
   text-decoration: underline;
@@ -17,6 +22,10 @@ h1 {
 
 .one-line {
     display: inline;
+}
+
+th {
+    background-color: #d7d6d6;
 }
 
 
@@ -65,10 +74,16 @@ p {
   border-radius: 5px;
 }
 
+table, th, td {
+    padding: 10px;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
 .column {
-  padding: 0 2.5% 0 2.5%;
+  padding: 0 1% 0 1%;
   float: left;
-  width: 45%;
+  width: 48%;
 }
 
 /* Clear floats after the columns */
@@ -79,6 +94,7 @@ p {
 }
 
 input {
+    width: 75px;
     font-weight: bold;
     padding: 0;
     margin: 0;
@@ -108,12 +124,12 @@ button {
     </script>
 </head>
 <body>
-    <h1>Meal RestfulAPI Service - Simple Version - Matt</h1>
-    <i><p class="lil">This is my special feature: <a target="_blank" href="https://matthewtrent.me">proof it's me.</a></p></i>
-    <i>    <p class="lil">Credit of course to <a target="_blank" href="https://www.themealdb.com/">https://www.themealdb.com</a> for the actual data.</p></i>
-    <i><p class="lil">Use at your own risk; this is just my "special feature". No guarantee it works perfectly.</p></i>
+    <h1>Meal RestfulAPI Service - Simple Version - Includes Demo Code and API Playground - CSC 130</h1>
+    <p class="lil">This is my special feature. <a target="_blank" href="https://matthewtrent.me">Proof I made this.</a></p>
+       <p class="lil">Credit of course to <a target="_blank" href="https://www.themealdb.com/">https://www.themealdb.com</a> for the actual data.</p>
+    <p class="lil">Use at your own risk; this is just my "special feature". No guarantee it works perfectly.</p>
     <p><span class="highlight">This RestfulAPI server returns status code 200 on success, and 500 on server error.</span></p>
-    <b class="tip">HOT TIP: Download this <a target="_blank" href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en">chrome extension</a> to view JSON data in the browser WAY nicer. This makes it really easy to work with!</b>
+    <b class="tip">HOT TIP: Download <a target="_blank" href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en">this chrome extension</a> to view JSON data in the browser WAY nicer. This makes it really easy to work with!</b>
     <br>
     <br>
     <div class="row">
@@ -130,7 +146,66 @@ button {
             <hr>
             <p>Call this endpoint from your code: <span class="code">https://pure-river-73157.herokuapp.com/random</span></p>
             <p>Notice, the route is: <span class="code">website domain/</span> + <span class="code">random</span></p>
-            <p>Here is an example call: <span class="code">https://pure-river-73157.herokuapp.com/random</span>.</p>
+            <p>Here is an example call: <span class="code">let response = await fetch(https://pure-river-73157.herokuapp.com/random)</span>.</p>
+            <hr>
+            <h3>What kind of JSON is returned?</h3>
+            <p>This returns an object:</p>
+            <table style="margin: auto;">
+                <tr>
+                    <th>Key</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>String</td>
+                    <td>The name of the meal</td>
+                </tr>
+                <tr>
+                    <td>image_source</td>
+                    <td>Link</td>
+                    <td>The link to an image of the meal.</td>
+                </tr>
+                <tr>
+                    <td>video_source</td>
+                    <td>Link</td>
+                    <td>The link to a video of the meal being made.</td>
+                </tr>
+                <tr>
+                    <td>tags</td>
+                    <td>List of strings</td>
+                    <td>Tags that tell what the meal is all about.</td>
+                </tr>
+                <tr>
+                    <td>ingredients</td>
+                    <td>List of objects, seen in table below.</td>
+                    <td>Ingredients needed to make the meals.</td>
+                </tr>
+                <tr>
+                    <td>recipe_source</td>
+                    <td>Link</td>
+                    <td>The link to the website the recipe is being sourced off of.</td>
+                </tr>        
+            </table>
+            <p>That inside houses a bunch of these ingredient objects:</p>
+            <table style="margin: auto">
+                <tr>
+                    <th>Key</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>item</td>
+                    <td>String</td>
+                    <td>The actual item that is needed.</td>
+                </tr>
+                <tr>
+                    <td>amount</td>
+                    <td>String</td>
+                    <td>The amount of "item" that is needed.</td>
+                </tr>
+            </table>
+            <br>
             <hr>
             <h2>Step 1/3: Call the endpoint from your code:</h2>
             <script src="https://gist.github.com/mattrltrent/29063990f507647e829358d6807ef9e1.js"></script>            <br>
@@ -145,7 +220,7 @@ button {
             <h4>Try entering an example search query to test the search-query-based meal API:</h4>
             <p>Remember, you're going to the endpoint: <span class="code">website domain/</span> + <span class="code">meals/</span> + <span class="code">what you type in the box</span></p>
             <p class="block code">https://pure-river-73157.herokuapp.com/meals/</p>
-            <input id="tf" value="carrot" type="text">
+            <input for="hey" id="tf" value="carrot" type="text">
             <button onclick="searchable()">Get search-based meals</button>
             <br>
             <br>
@@ -153,7 +228,84 @@ button {
             <p>Call this endpoint from your code: <span class="code">https://pure-river-73157.herokuapp.com/meals/YOUR_QUERY</span></p>
             <p>Notice, the route is: <span class="code">website domain/</span> + <span class="code">meals/</span> + <span class="code">YOUR_QUERY</span></p>
             <p>An example of <span class="code">YOUR_QUERY</span> could be "car", which would return a list of recipes whose names contain "car" in it. This might includes "CARrot noodles" or "CARnival soup".</p>
-            <p>Here is an example call: <span class="code">https://pure-river-73157.herokuapp.com/meals/car</span>.</p>
+            <p>Here is an example call: <span class="code">let response = await fetch(https://pure-river-73157.herokuapp.com/meals/car)</span>.</p>
+            <hr>
+            <h3>What kind of JSON is returned?</h3>
+            <p>This returns an object:</p>
+            <table style="margin: auto">
+                <tr>
+                    <th>Key</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>length</td>
+                    <td>integer</td>
+                    <td>The number of meals returned for this search query.</td>
+                </tr>
+                <tr>
+                    <td>meals</td>
+                    <td>List of objects, seen in table below.</td>
+                    <td>The actual individual meals.</td>
+                </tr>
+            </table>
+            <p>That inside houses a bunch of these meal objects:</p>
+            <table style="margin: auto;">
+                <tr>
+                    <th>Key</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>name</td>
+                    <td>String</td>
+                    <td>The name of the meal.</td>
+                </tr>
+                <tr>
+                    <td>image_source</td>
+                    <td>Link</td>
+                    <td>The link to an image of the meal.</td>
+                </tr>
+                <tr>
+                    <td>video_source</td>
+                    <td>Link</td>
+                    <td>The link to a video of the meal being made.</td>
+                </tr>
+                <tr>
+                    <td>tags</td>
+                    <td>List of strings</td>
+                    <td>Tags that tell what the meal is all about.</td>
+                </tr>
+                <tr>
+                    <td>ingredients</td>
+                    <td>List of objects, seen in table below.</td>
+                    <td>Ingredients needed to make the meals.</td>
+                </tr>
+                <tr>
+                    <td>recipe_source</td>
+                    <td>Link</td>
+                    <td>The link to the website the recipe is being sourced off of.</td>
+                </tr>
+            </table>
+            <p>That inside houses a bunch of these ingredient objects:</p>
+            <table style="margin: auto">
+                <tr>
+                    <th>Key</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>item</td>
+                    <td>String</td>
+                    <td>The actual item that is needed.</td>
+                </tr>
+                <tr>
+                    <td>amount</td>
+                    <td>String</td>
+                    <td>The amount of "item" that is needed.</td>
+                </tr>
+            </table>
+            <br>
             <hr>
             <h2>Step 1/3: Call the endpoint from your code:</h2>
             <script src="https://gist.github.com/mattrltrent/53c6c370c5399cebb5c60c82077b5281.js"></script>            <br>
