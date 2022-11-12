@@ -1,4 +1,4 @@
-body {
+/* body {
   text-align: center;
 }
 
@@ -41,9 +41,8 @@ p {
   width: 45%;
 }
 
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
-}
+} */
