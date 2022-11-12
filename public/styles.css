@@ -6,12 +6,26 @@ h1 {
   text-decoration: underline;
 }
 
+.tip {
+  background-color: lightsalmon;
+  padding: 5px;
+  border-radius: 5px;
+  line-height: 2.5;
+}
+
+.highlight {
+  background-color: lightpink;
+  padding: 5px;
+  border-radius: 5px;
+  line-height: 2.5;
+}
+
 a {
   color: black;
 }
 
 p {
-  line-height: 1.8;
+  line-height: 2.5;
 }
 
 .code {
