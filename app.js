@@ -14,10 +14,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get("/", (req, res) => {
-    res.send("<h1>Matt's RESTful Web Service</h1><p>It's not really meant to have UI... but like... it exists. I guess as proof it was me that made it.</p><p>Use 'domain/random' to get a random recipe, or 'domain/meals/YOUR_QUERY' to search for meals.</p><p>Credit to these people for the meal data: https://www.themealdb.com.</p>");
+    res.sendFile('views/dashboard.html', {root: __dirname })
 });
 
-app.post("/random", async function (req, res) {
+app.all("/random", async function (req, res) {
     try {
         axios.post('https://www.themealdb.com/api/json/v1/1/random.php').then(resp => {
             let meal = resp.data.meals[0];
@@ -36,7 +36,7 @@ app.post("/random", async function (req, res) {
     }
 });
 
-app.post("/meals/:id", async function (req, res) { 
+app.all("/meals/:id", async function (req, res) { 
     try {
         axios.post('https://www.themealdb.com/api/json/v1/1/search.php?s=' + req.params.id).then(resp => {
             let meals = [];

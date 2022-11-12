@@ -1,0 +1,35 @@
+body {
+  text-align: center;
+}
+
+h1 {
+  text-decoration: underline;
+}
+
+a {
+  color: black;
+}
+
+p {
+  line-height: 1.8;
+}
+
+.code {
+  background-color: lightblue;
+  display: inline;
+  padding: 4px;
+  border-radius: 5px;
+}
+
+.column {
+  padding: 0 2.5% 0 2.5%;
+  float: left;
+  width: 45%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

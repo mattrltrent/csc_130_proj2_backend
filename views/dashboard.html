@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/backend/public/styles.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Meal RestfulAPI Service - Simple Version</h1>
+    <i><p>This is my special feature: <a target="_blank" href="https://matthewtrent.me">proof it's me.</a></p></i>
+    <i>    <p>Credit of course to <a target="_blank" href="https://www.themealdb.com/">https://www.themealdb.com</a> for the actual data.</p></i>
+    <i><p>Use at your own risk; this is just my "special feature". No guarantee it works perfectly.</p></i>
+    <div class="row">
+        <div class="column">
+            <h1>Get random recipe:</h1>
+            <br>
+            <p>Call this endpoint from your code: <span class="code"><a href="https://pure-river-73157.herokuapp.com/random">https://pure-river-73157.herokuapp.com/random</a></span></p>
+            <p>Notice, the route is: website domain + <span class="code">/random</span></p>
+            <br>
+            <h2>Step 1/3: Call the endpoint from your code:</h2>
+            <script src="https://gist.github.com/mattrltrent/29063990f507647e829358d6807ef9e1.js"></script>            <br>
+            <h2>Step 2/3: Get some JSON data back:</h2>
+            <script src="https://gist.github.com/mattrltrent/c40105ca85edd0cdabf0e0a87e2343cf.js"></script>            <br>
+            <h2>Step 3/3: Extract/use the JSON, like this:</h2>
+            <script src="https://gist.github.com/mattrltrent/037741656de4d2b289d4611e9f8e5814.js"></script>        </div>
+        <div class="column">
+            <h1>Get list of recipes from a search query:</h1>
+            <br>
+            <p>Call this endpoint from your code: <span class="code"><a href="https://pure-river-73157.herokuapp.com/meals/car">https://pure-river-73157.herokuapp.com/meals/YOUR_QUERY</a></span></p>
+            <p>Notice, the route is: website domain + <span class="code">/meals/YOUR_QUERY</span></p>
+            <p>An example of <span class="code">YOUR_QUERY</span> could be "car", which would return a list of recipes whose names contain "car" in it. This might includes "CARrot noodles" or "CARnival soup".</p>
+            <br>
+            <h2>Step 1/3: Call the endpoint from your code:</h2>
+            <script src="https://gist.github.com/mattrltrent/53c6c370c5399cebb5c60c82077b5281.js"></script>            <br>
+            <h2>Step 2/3: Get some JSON data back:</h2>
+            <script src="https://gist.github.com/mattrltrent/b1b33ae81c900e7210a41cf7fcd8479e.js"></script>            <br>
+            <h2>Step 3/3: Extract/use the JSON, like this:</h2>
+            <script src="https://gist.github.com/mattrltrent/c1206a48b8fe3cd17de04e447a680ac8.js"></script>        </div>
+      </div>
+      <br>
+      <br>
+</body>
+</html>
