@@ -7,7 +7,7 @@ const { create_ingredients } = require('./utils/create_ingredients');
 const { create_name } = require('./utils/create_name');
 var cors = require('cors');
 
-app.use(cors());
+app.options('*', cors());
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
